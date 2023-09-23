@@ -1,16 +1,8 @@
-export interface IProduct {
-  id: number;
-  title: string;
-  description: string;
-  price: string;
-  image: string;
-  shippingMethod: string;
-  isFavorite: boolean;
-}
+import {Product} from '../../../services/types';
 
 export interface ProdcutCardListParams {
-  data: IProduct[];
-  onPress: (item: IProduct) => void;
-  onFavoritePress: (itemId: number) => void;
-  onCartPress: (itemId: number) => void;
+  data: Product[];
+  onPress: (item: Product) => void;
+  onFavoritePress: (item: Product) => void;
+  onCartPress: (item: Product) => void;
 }

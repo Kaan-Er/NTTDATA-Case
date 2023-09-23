@@ -1,5 +1,10 @@
+import {Product} from '../../../services/types';
+
 export interface IUser {
   [x: string]: any;
+  favorites: Product[];
+  cart: [];
+  location: {};
   name: string;
   loading: boolean;
   error: string;

@@ -5,12 +5,15 @@ import DefaultTemplate from '../../templates/DefaultTemplate';
 import Image from '../../components/atoms/Image';
 import Button from '../../components/atoms/Button';
 import {RouteProp} from '@react-navigation/native';
-import {IProduct} from '../../components/organisms/ProductCardList/types';
 import Header from '../../components/atoms/Header';
 import Divider from '../../components/atoms/Divider';
+import {Product} from '../../services/types';
+import {selectUser} from '../../redux/slices/user';
+import {useSelector} from 'react-redux';
 
-export default ({route}: {route: RouteProp<{params: {product: IProduct}}>}) => {
+export default ({route}: {route: RouteProp<{params: {product: Product}}>}) => {
   const {product} = route.params;
+  const userStore = useSelector(selectUser);
 
   return (
     <DefaultTemplate
@@ -21,9 +24,13 @@ export default ({route}: {route: RouteProp<{params: {product: IProduct}}>}) => {
       topBackgroundColor={colors.white.default}>
       <View style={styles.container}>
         <View>
-          <Image url={product.image} width="100%" height={300} />
+          <Image url={product.imageUrl} width="100%" height={300} />
           <Button
-            iconName={product.isFavorite ? 'Heart' : 'HeartOutline'}
+            iconName={
+              userStore.favorites.some(favorite => favorite.id === product.id)
+                ? 'Heart'
+                : 'HeartOutline'
+            }
             color={colors.white.default}
             iconWidth="24"
             iconHeight="24"
@@ -34,7 +41,7 @@ export default ({route}: {route: RouteProp<{params: {product: IProduct}}>}) => {
         </View>
         <View style={styles.details}>
           <View style={styles.header}>
-            <Header text={product.title} size={18} bold />
+            <Header text={product.name} size={18} bold />
             <Header text={`${product.price} ₺`} size={20} bold />
           </View>
           <Header text={product.description} size={16} />

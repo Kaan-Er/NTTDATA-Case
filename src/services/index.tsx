@@ -1,8 +1,6 @@
-import {store} from '../redux/store';
-
 const options = {
-  baseUrl: 'https://test.com',
-  rootPath: '/api',
+  baseUrl: 'https://honey-badgers-ecommerce.glitch.me',
+  rootPath: '/',
   userAgent: 'Test Mobile App',
 };
 
@@ -31,9 +29,6 @@ const send = async (
     method,
     headers: {
       'Content-Type': 'application/json; charset=UTF-8',
-      Authorization: store.getState().user.token
-        ? store.getState().user.token
-        : null,
       'User-Agent': options.userAgent,
     },
     body: JSON.stringify(data),
@@ -54,7 +49,7 @@ const methods = {
   get: (
     endpoint: string,
     params: string,
-    data: any,
+    data?: any,
     withoutToken?: boolean,
   ) => {
     return send(endpoint, params, GET, data, withoutToken);

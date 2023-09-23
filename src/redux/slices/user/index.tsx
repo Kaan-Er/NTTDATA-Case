@@ -5,6 +5,9 @@ import {login} from './actions';
 
 // This is the initial state of the slice
 const initialState: IUser = {
+  favorites: [],
+  cart: [],
+  location: {},
   name: 'Kaan',
   loading: false,
   error: '',
@@ -20,6 +23,16 @@ export const userSlices = createSlice({
     changeName: (state, action) => {
       // This is the action object we will pass when we dispatch the action
       state.name = action.payload; // This is the payload we will pass when we dispatch the action
+    },
+    favoriteHandler: (state, action) => {
+      const index = state.favorites.findIndex(
+        favorite => favorite.id === action.payload.id,
+      );
+      if (index === -1) {
+        state.favorites.push(action.payload);
+      } else {
+        state.favorites.splice(index, 1);
+      }
     },
   },
   extraReducers: builder => {
@@ -41,7 +54,7 @@ export const userSlices = createSlice({
 export const selectUser = (state: any): IUser => state.user;
 
 // Action creators are generated for each case reducer function
-export const {changeName} = userSlices.actions;
+export const {changeName, favoriteHandler} = userSlices.actions;
 
 // We export the reducer function so that it can be added to the store
 export default userSlices.reducer;
