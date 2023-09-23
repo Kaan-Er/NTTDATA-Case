@@ -1,0 +1,1 @@
+Fontları yükledikten sonra "npx react-native-asset" komutunu çalıştırın.

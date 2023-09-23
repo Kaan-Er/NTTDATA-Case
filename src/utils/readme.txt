@@ -1,0 +1,1 @@
+Yardımcı fonksiyonları burada oluşturabilirsiniz

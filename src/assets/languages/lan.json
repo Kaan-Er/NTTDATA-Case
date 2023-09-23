@@ -1,0 +1,12 @@
+{
+  "en": {
+    "Hello": "Hello",
+    "World": "World",
+    "Home": "Home"
+  },
+  "tr": {
+    "Hello": "Merhaba",
+    "World": "Dünya",
+    "Home": "Anasayfa"
+  }
+}
