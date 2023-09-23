@@ -1,2 +1,2 @@
-export const FontFamily = 'Roboto';
+export const FontFamily = 'Poppins';
 export const FontFamilyRTL = 'Tajawal';

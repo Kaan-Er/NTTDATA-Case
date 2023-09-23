@@ -8,6 +8,7 @@ export type StackNavigatorList = {
   BottomTab: {
     screen: keyof BottomNavigatorList;
   };
+  Login: undefined;
 };
 
 export type BottomNavigatorList = {

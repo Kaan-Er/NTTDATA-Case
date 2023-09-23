@@ -14,6 +14,9 @@ import Notification from '../assets/icons/notification.svg';
 import Filter from '../assets/icons/filter.svg';
 import Add from '../assets/icons/add.svg';
 import Edit from '../assets/icons/edit.svg';
+import Logo from '../assets/icons/logo.svg';
+import Email from '../assets/icons/email.svg';
+import Lock from '../assets/icons/lock.svg';
 
 const icons: {[key: string]: React.FC<SvgProps>} = {
   Bottom,
@@ -28,6 +31,9 @@ const icons: {[key: string]: React.FC<SvgProps>} = {
   Filter,
   Add,
   Edit,
+  Logo,
+  Email,
+  Lock,
 };
 
 const nonFlip: {[key: string]: string} = {};

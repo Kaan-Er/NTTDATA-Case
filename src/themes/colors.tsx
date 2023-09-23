@@ -1,7 +1,7 @@
 // all colors named from https://www.color-name.com/
 
 export default {
-  primary: '#07BBE6',
+  primary: '#6936F5',
   secondary: '#1E95B2',
   slimyGreen: '#3B9F00',
   alabaster: '#EEF8E8',

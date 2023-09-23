@@ -1,6 +1,7 @@
 import {I18nManager, Platform} from 'react-native';
 import colors from '../../../themes/colors';
 import {StyleFnProps, StyleProps} from './types';
+import {FontFamily, FontFamilyRTL} from '../../../configs/font';
 
 export default ({
   backgroundColor,
@@ -16,7 +17,7 @@ export default ({
       backgroundColor,
       borderColor: backgroundColor,
       borderWidth: 1,
-      borderRadius: 17,
+      borderRadius: 12,
       padding: Platform.OS === 'ios' ? 13 : 9,
       shadowColor: shadow ? '#6767679e' : undefined,
       shadowOffset: {
@@ -34,7 +35,7 @@ export default ({
       backgroundColor: activeBackgroundColor,
       borderColor: colors.greenRYB.op20,
       borderWidth: 1,
-      borderRadius: 17,
+      borderRadius: 12,
       padding: Platform.OS === 'ios' ? 13 : 9,
     },
     seperator: {
@@ -58,9 +59,9 @@ export default ({
     input: {
       fontSize,
       flex: 1,
-      paddingVertical: 0,
-
-      fontFamily: I18nManager.isRTL ? 'Tajawal' : 'SFUIText-Regular',
+      color: colors.blackOlive,
+      // paddingVertical: 0,
+      fontFamily: I18nManager.isRTL ? FontFamilyRTL : FontFamily,
       textAlign: I18nManager.isRTL ? 'right' : 'left',
     },
     icon: {},

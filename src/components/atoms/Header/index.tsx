@@ -21,7 +21,7 @@ export default ({
   semiBold,
   overLine,
   underLine,
-  family = I18nManager.isRTL || arabic.test(text) ? FontFamily : FontFamilyRTL,
+  family = I18nManager.isRTL || arabic.test(text) ? FontFamilyRTL : FontFamily,
   ...props
 }: HeaderProps) => {
   const styles = style({
