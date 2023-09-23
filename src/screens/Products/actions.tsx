@@ -12,7 +12,7 @@ export const getInitialData: GetInitialDataProps = async setProducts => {
   } catch (error) {
     Toast.open({
       type: 'error',
-      title: 'Bir hata oluştu!',
+      title: 'There was an error while fetching products!',
     });
   }
 };

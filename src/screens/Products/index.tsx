@@ -7,16 +7,12 @@ import {useNavigation} from '@react-navigation/native';
 import {ScreenProp} from '../../navigation/types';
 import {getInitialData, onFavoritePress} from './actions';
 import {Product} from '../../services/types';
-import {useDispatch, useSelector} from 'react-redux';
-import {selectUser} from '../../redux/slices/user';
+import {useDispatch} from 'react-redux';
 
 export default () => {
   const navigation = useNavigation<ScreenProp>();
   const dispatch = useDispatch();
   const [products, setProducts] = useState<Product[]>([]);
-  const userStore = useSelector(selectUser);
-
-  console.log('userStore', userStore);
 
   useEffect(() => {
     getInitialData(setProducts);

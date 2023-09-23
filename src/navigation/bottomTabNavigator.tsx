@@ -5,17 +5,11 @@ import {StyleProp, TextStyle} from 'react-native';
 import Home from '../screens/Home';
 import colors from '../themes/colors';
 import Icon from '../components/atoms/Icon';
-import {ScreenProp} from './types';
 import {FontFamily} from '../configs/font';
 import Products from '../screens/Products';
+import Favorites from '../screens/Favorites';
 
-const BottomTabNavigator = ({
-  navigation,
-  route,
-}: {
-  navigation: ScreenProp;
-  route: any;
-}) => {
+const BottomTabNavigator = () => {
   const BottomTab = createBottomTabNavigator();
   const insets = useSafeAreaInsets();
 
@@ -83,7 +77,7 @@ const BottomTabNavigator = ({
       />
       <BottomTab.Screen
         name="Favorites"
-        component={Products}
+        component={Favorites}
         options={{
           tabBarLabel: 'Favorites',
           tabBarLabelStyle: fontFamilyStyle,

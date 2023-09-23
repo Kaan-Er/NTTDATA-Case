@@ -28,6 +28,8 @@ import Heart from '../assets/icons/heart.svg';
 import HeartOutline from '../assets/icons/heartOutline.svg';
 import Shop from '../assets/icons/shop.svg';
 import ShopOutline from '../assets/icons/shopOutline.svg';
+import EmptyCard from '../assets/icons/emptyCard.svg';
+import EmptyFavorite from '../assets/icons/emptyFavorite.svg';
 
 const icons: {[key: string]: React.FC<SvgProps>} = {
   Bottom,
@@ -56,6 +58,8 @@ const icons: {[key: string]: React.FC<SvgProps>} = {
   HeartOutline,
   Shop,
   ShopOutline,
+  EmptyCard,
+  EmptyFavorite,
 };
 
 const nonFlip: {[key: string]: string} = {};
