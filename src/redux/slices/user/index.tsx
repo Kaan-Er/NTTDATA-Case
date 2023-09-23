@@ -2,6 +2,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {IUser} from './types';
 import {login} from './actions';
+import Toast from '../../../components/molecules/Toast';
 
 // This is the initial state of the slice
 const initialState: IUser = {
@@ -29,9 +30,17 @@ export const userSlices = createSlice({
         favorite => favorite.id === action.payload.id,
       );
       if (index === -1) {
-        state.favorites.push(action.payload);
+        state.favorites.unshift(action.payload);
+        Toast.open({
+          type: 'success',
+          title: 'Product added to favorites!',
+        });
       } else {
         state.favorites.splice(index, 1);
+        Toast.open({
+          type: 'success',
+          title: 'Product removed from favorites!',
+        });
       }
     },
     addCart: (state, action) => {
@@ -39,12 +48,20 @@ export const userSlices = createSlice({
         cart => cart.product.id === action.payload.id,
       );
       if (index === -1) {
-        state.cart.push({
+        state.cart.unshift({
           product: action.payload,
           quantity: 1,
         });
+        Toast.open({
+          type: 'success',
+          title: 'Product added to cart!',
+        });
       } else {
         state.cart[index].quantity += 1;
+        Toast.open({
+          type: 'success',
+          title: 'Product quantity increased!',
+        });
       }
     },
     removeCart: (state, action) => {
@@ -53,8 +70,28 @@ export const userSlices = createSlice({
       );
       if (index !== -1 && state.cart[index].quantity === 1) {
         state.cart.splice(index, 1);
+        Toast.open({
+          type: 'success',
+          title: 'Product removed from cart!',
+        });
       } else {
         state.cart[index].quantity -= 1;
+        Toast.open({
+          type: 'success',
+          title: 'Product quantity decreased!',
+        });
+      }
+    },
+    deleteCart: (state, action) => {
+      const index = state.cart.findIndex(
+        cart => cart.product.id === action.payload.id,
+      );
+      if (index !== -1) {
+        state.cart.splice(index, 1);
+        Toast.open({
+          type: 'success',
+          title: 'Product removed from cart!',
+        });
       }
     },
   },
@@ -77,7 +114,7 @@ export const userSlices = createSlice({
 export const selectUser = (state: any): IUser => state.user;
 
 // Action creators are generated for each case reducer function
-export const {changeName, handleFavorite, addCart, removeCart} =
+export const {changeName, handleFavorite, addCart, removeCart, deleteCart} =
   userSlices.actions;
 
 // We export the reducer function so that it can be added to the store

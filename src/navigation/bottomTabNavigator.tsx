@@ -1,17 +1,21 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {StyleProp, TextStyle} from 'react-native';
+import {StyleProp, StyleSheet, TextStyle} from 'react-native';
 import Home from '../screens/Home';
 import colors from '../themes/colors';
 import Icon from '../components/atoms/Icon';
 import {FontFamily} from '../configs/font';
 import Products from '../screens/Products';
 import Favorites from '../screens/Favorites';
+import Basket from '../screens/Basket';
+import {selectUser} from '../redux/slices/user';
+import {useSelector} from 'react-redux';
 
 const BottomTabNavigator = () => {
   const BottomTab = createBottomTabNavigator();
   const insets = useSafeAreaInsets();
+  const userStore = useSelector(selectUser);
 
   const fontFamilyStyle: StyleProp<TextStyle> = {
     fontFamily: FontFamily,
@@ -86,15 +90,34 @@ const BottomTabNavigator = () => {
       />
       <BottomTab.Screen
         name="Basket"
-        component={Products}
+        component={Basket}
         options={{
           tabBarLabel: 'Basket',
           tabBarLabelStyle: fontFamilyStyle,
           tabBarIcon: ({focused}) => renderIcon({focused, icon: 'Basket'}),
+          tabBarBadge:
+            userStore.cart.length > 0
+              ? userStore.cart.reduce(
+                  (totalQuantity, item) => totalQuantity + item.quantity,
+                  0,
+                )
+              : undefined,
+          tabBarBadgeStyle: styles.badge,
         }}
       />
     </BottomTab.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  badge: {
+    backgroundColor: colors.primary,
+    color: colors.white.default,
+    fontSize: 10,
+    fontWeight: '500',
+    fontFamily: FontFamily,
+    top: -4,
+  },
+});
 
 export default BottomTabNavigator;

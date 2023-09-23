@@ -30,6 +30,9 @@ import Shop from '../assets/icons/shop.svg';
 import ShopOutline from '../assets/icons/shopOutline.svg';
 import EmptyCard from '../assets/icons/emptyCard.svg';
 import EmptyFavorite from '../assets/icons/emptyFavorite.svg';
+import Delete from '../assets/icons/delete.svg';
+import Minus from '../assets/icons/minus.svg';
+import Plus from '../assets/icons/plus.svg';
 
 const icons: {[key: string]: React.FC<SvgProps>} = {
   Bottom,
@@ -60,6 +63,9 @@ const icons: {[key: string]: React.FC<SvgProps>} = {
   ShopOutline,
   EmptyCard,
   EmptyFavorite,
+  Delete,
+  Minus,
+  Plus,
 };
 
 const nonFlip: {[key: string]: string} = {};

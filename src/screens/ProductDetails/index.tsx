@@ -9,11 +9,13 @@ import Header from '../../components/atoms/Header';
 import Divider from '../../components/atoms/Divider';
 import {Product} from '../../services/types';
 import {selectUser} from '../../redux/slices/user';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {addCartPress, onFavoritePress} from '../Products/actions';
 
 export default ({route}: {route: RouteProp<{params: {product: Product}}>}) => {
   const {product} = route.params;
   const userStore = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   return (
     <DefaultTemplate
@@ -36,7 +38,7 @@ export default ({route}: {route: RouteProp<{params: {product: Product}}>}) => {
             iconHeight="24"
             style={styles.favoriteButton}
             iconColor={colors.primary}
-            onPress={() => null}
+            onPress={() => onFavoritePress(product, dispatch)}
           />
         </View>
         <View style={styles.details}>
@@ -80,7 +82,7 @@ export default ({route}: {route: RouteProp<{params: {product: Product}}>}) => {
             medium
             style={styles.button}
             bold
-            onPress={() => null}>
+            onPress={() => addCartPress(product, dispatch)}>
             Add to Cart
           </Button>
         </View>
