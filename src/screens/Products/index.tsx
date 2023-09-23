@@ -3,8 +3,11 @@ import {View, StyleSheet} from 'react-native';
 import colors from '../../themes/colors';
 import DefaultTemplate from '../../templates/DefaultTemplate';
 import ProductCardList from '../../components/organisms/ProductCardList';
+import {useNavigation} from '@react-navigation/native';
+import {ScreenProp} from '../../navigation/types';
 
 export default () => {
+  const navigation = useNavigation<ScreenProp>();
   const data = [
     {
       id: 1,
@@ -166,7 +169,7 @@ export default () => {
           data={data}
           onCartPress={() => null}
           onFavoritePress={() => null}
-          onPress={() => null}
+          onPress={product => navigation.navigate('ProductDetails', {product})}
         />
       </View>
     </DefaultTemplate>

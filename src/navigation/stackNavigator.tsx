@@ -7,6 +7,7 @@ import {StackNavigatorList} from './types';
 import BottomTabNavigator from './bottomTabNavigator';
 import colors from '../themes/colors';
 import Login from '../screens/Login';
+import ProductDetails from '../screens/ProductDetails';
 
 const stackNavigator = () => {
   const Stack = createStackNavigator<StackNavigatorList>();
@@ -35,6 +36,7 @@ const stackNavigator = () => {
     <Stack.Navigator screenOptions={horizontalAnimation}>
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="BottomTab" component={BottomTabNavigator} />
+      <Stack.Screen name="ProductDetails" component={ProductDetails} />
     </Stack.Navigator>
   );
 };
