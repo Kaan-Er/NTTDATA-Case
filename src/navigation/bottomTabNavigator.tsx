@@ -6,11 +6,8 @@ import Home from '../screens/Home';
 import colors from '../themes/colors';
 import Icon from '../components/atoms/Icon';
 import {ScreenProp} from './types';
-import {useSelector} from 'react-redux';
-import LanType from '../assets/languages/lan';
-import * as lan from '../assets/languages/lan.json';
-import {selectUser} from '../redux/slices/user';
 import {FontFamily} from '../configs/font';
+import Products from '../screens/Products';
 
 const BottomTabNavigator = ({
   navigation,
@@ -20,8 +17,6 @@ const BottomTabNavigator = ({
   route: any;
 }) => {
   const BottomTab = createBottomTabNavigator();
-  const userStore = useSelector(selectUser);
-  const lang: LanType = lan[userStore.language];
   const insets = useSafeAreaInsets();
 
   const fontFamilyStyle: StyleProp<TextStyle> = {
@@ -61,9 +56,7 @@ const BottomTabNavigator = ({
           shadowOpacity: 0.58,
           shadowRadius: 16.0,
           elevation: 24,
-          // borderTopLeftRadius: 30,
-          // borderTopRightRadius: 30,
-          backgroundColor: '#fff',
+          backgroundColor: colors.white.default,
           bottom: 0,
           width: '100%',
           zIndex: 0,
@@ -74,9 +67,36 @@ const BottomTabNavigator = ({
         name="Home"
         component={Home}
         options={{
-          tabBarLabel: lang.Home,
+          tabBarLabel: 'Home',
           tabBarLabelStyle: fontFamilyStyle,
           tabBarIcon: ({focused}) => renderIcon({focused, icon: 'Home'}),
+        }}
+      />
+      <BottomTab.Screen
+        name="Products"
+        component={Products}
+        options={{
+          tabBarLabel: 'Products',
+          tabBarLabelStyle: fontFamilyStyle,
+          tabBarIcon: ({focused}) => renderIcon({focused, icon: 'Products'}),
+        }}
+      />
+      <BottomTab.Screen
+        name="Favorites"
+        component={Products}
+        options={{
+          tabBarLabel: 'Favorites',
+          tabBarLabelStyle: fontFamilyStyle,
+          tabBarIcon: ({focused}) => renderIcon({focused, icon: 'Heart'}),
+        }}
+      />
+      <BottomTab.Screen
+        name="Basket"
+        component={Products}
+        options={{
+          tabBarLabel: 'Basket',
+          tabBarLabelStyle: fontFamilyStyle,
+          tabBarIcon: ({focused}) => renderIcon({focused, icon: 'Basket'}),
         }}
       />
     </BottomTab.Navigator>

@@ -13,4 +13,5 @@ export type StackNavigatorList = {
 
 export type BottomNavigatorList = {
   Home: undefined;
+  Products: undefined;
 };

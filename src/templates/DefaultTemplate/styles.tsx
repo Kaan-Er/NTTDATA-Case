@@ -37,7 +37,7 @@ export default ({
       flex: 1,
       backgroundColor: subContainerBackground,
       zIndex: -33,
-      marginBottom: 63,
+      marginBottom: 52,
     },
     headerBackground: {
       position: 'absolute',
@@ -47,7 +47,7 @@ export default ({
       zIndex: -1,
     },
     top: {
-      height: 66,
+      height: 40,
       alignItems: 'center',
       paddingHorizontal: 16,
       justifyContent,

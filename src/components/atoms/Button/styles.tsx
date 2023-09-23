@@ -8,8 +8,8 @@ export default ({
 }: Partial<StyleFnProps>): StyleProps => ({
   container: {},
   button: {
-    paddingVertical: 10,
-    paddingHorizontal: 10,
+    paddingVertical: 4,
+    paddingHorizontal: 4,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

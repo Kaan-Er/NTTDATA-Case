@@ -17,6 +17,17 @@ import Edit from '../assets/icons/edit.svg';
 import Logo from '../assets/icons/logo.svg';
 import Email from '../assets/icons/email.svg';
 import Lock from '../assets/icons/lock.svg';
+import UserLocation from '../assets/icons/userLocation.svg';
+import Basket from '../assets/icons/basket.svg';
+import BasketOutline from '../assets/icons/basketOutline.svg';
+import Favorite from '../assets/icons/favorite.svg';
+import FavoriteOutline from '../assets/icons/favoriteOutline.svg';
+import Products from '../assets/icons/products.svg';
+import ProductsOutline from '../assets/icons/productsOutline.svg';
+import Heart from '../assets/icons/heart.svg';
+import HeartOutline from '../assets/icons/heartOutline.svg';
+import Shop from '../assets/icons/shop.svg';
+import ShopOutline from '../assets/icons/shopOutline.svg';
 
 const icons: {[key: string]: React.FC<SvgProps>} = {
   Bottom,
@@ -34,6 +45,17 @@ const icons: {[key: string]: React.FC<SvgProps>} = {
   Logo,
   Email,
   Lock,
+  UserLocation,
+  Basket,
+  BasketOutline,
+  Favorite,
+  FavoriteOutline,
+  Products,
+  ProductsOutline,
+  Heart,
+  HeartOutline,
+  Shop,
+  ShopOutline,
 };
 
 const nonFlip: {[key: string]: string} = {};
