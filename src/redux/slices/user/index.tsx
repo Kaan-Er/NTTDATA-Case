@@ -24,7 +24,7 @@ export const userSlices = createSlice({
       // This is the action object we will pass when we dispatch the action
       state.name = action.payload; // This is the payload we will pass when we dispatch the action
     },
-    favoriteHandler: (state, action) => {
+    handleFavorite: (state, action) => {
       const index = state.favorites.findIndex(
         favorite => favorite.id === action.payload.id,
       );
@@ -32,6 +32,29 @@ export const userSlices = createSlice({
         state.favorites.push(action.payload);
       } else {
         state.favorites.splice(index, 1);
+      }
+    },
+    addCart: (state, action) => {
+      const index = state.cart.findIndex(
+        cart => cart.product.id === action.payload.id,
+      );
+      if (index === -1) {
+        state.cart.push({
+          product: action.payload,
+          quantity: 1,
+        });
+      } else {
+        state.cart[index].quantity += 1;
+      }
+    },
+    removeCart: (state, action) => {
+      const index = state.cart.findIndex(
+        cart => cart.product.id === action.payload.id,
+      );
+      if (index !== -1 && state.cart[index].quantity === 1) {
+        state.cart.splice(index, 1);
+      } else {
+        state.cart[index].quantity -= 1;
       }
     },
   },
@@ -54,7 +77,8 @@ export const userSlices = createSlice({
 export const selectUser = (state: any): IUser => state.user;
 
 // Action creators are generated for each case reducer function
-export const {changeName, favoriteHandler} = userSlices.actions;
+export const {changeName, handleFavorite, addCart, removeCart} =
+  userSlices.actions;
 
 // We export the reducer function so that it can be added to the store
 export default userSlices.reducer;

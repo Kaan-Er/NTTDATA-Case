@@ -2,8 +2,8 @@ import {Dispatch} from 'react';
 import Toast from '../../components/molecules/Toast';
 import {getProducts} from '../../services/actions';
 import {Product} from '../../services/types';
-import {FavoritePressProps, GetInitialDataProps} from './types';
-import {favoriteHandler} from '../../redux/slices/user';
+import {CartPressProps, FavoritePressProps, GetInitialDataProps} from './types';
+import {addCart, handleFavorite} from '../../redux/slices/user';
 
 export const getInitialData: GetInitialDataProps = async setProducts => {
   try {
@@ -21,5 +21,12 @@ export const onFavoritePress: FavoritePressProps = (
   product: Product,
   dispatch: Dispatch<any>,
 ) => {
-  dispatch(favoriteHandler(product));
+  dispatch(handleFavorite(product));
+};
+
+export const addCartPress: CartPressProps = (
+  product: Product,
+  dispatch: Dispatch<any>,
+) => {
+  dispatch(addCart(product));
 };

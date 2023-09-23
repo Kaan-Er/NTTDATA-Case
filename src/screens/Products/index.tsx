@@ -5,7 +5,7 @@ import DefaultTemplate from '../../templates/DefaultTemplate';
 import ProductCardList from '../../components/organisms/ProductCardList';
 import {useNavigation} from '@react-navigation/native';
 import {ScreenProp} from '../../navigation/types';
-import {getInitialData, onFavoritePress} from './actions';
+import {addCartPress, getInitialData, onFavoritePress} from './actions';
 import {Product} from '../../services/types';
 import {useDispatch} from 'react-redux';
 
@@ -26,7 +26,7 @@ export default () => {
       <View style={styles.container}>
         <ProductCardList
           data={products.filter(product => product.name)}
-          onCartPress={() => null}
+          onCartPress={product => addCartPress(product, dispatch)}
           onFavoritePress={product => onFavoritePress(product, dispatch)}
           onPress={product => navigation.navigate('ProductDetails', {product})}
         />

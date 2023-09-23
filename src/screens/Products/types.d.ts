@@ -8,3 +8,8 @@ export type FavoritePressProps = (
   product: Product,
   dispatch: Dispatch<SetStateAction<Product[] | any | undefined>>,
 ) => void;
+
+export type CartPressProps = (
+  product: Product,
+  dispatch: Dispatch<SetStateAction<Product[] | any | undefined>>,
+) => void;
