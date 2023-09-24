@@ -7,7 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 import {ScreenProp} from '../../navigation/types';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectUser} from '../../redux/slices/user';
-import {onFavoritePress} from '../Products/actions';
+import {addCartPress, onFavoritePress} from '../Products/actions';
 
 export default () => {
   const navigation = useNavigation<ScreenProp>();
@@ -22,7 +22,7 @@ export default () => {
       <View style={styles.container}>
         <ProductCardList
           data={userStore.favorites}
-          onCartPress={() => null}
+          onCartPress={product => addCartPress(product, dispatch)}
           onFavoritePress={product => onFavoritePress(product, dispatch)}
           onPress={product => navigation.navigate('ProductDetails', {product})}
         />
