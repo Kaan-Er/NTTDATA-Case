@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
-import React, {memo} from 'react';
+import React, {memo, useCallback} from 'react';
 import {Dimensions, FlatList, StyleSheet, View} from 'react-native';
 import {ProdcutCardListParams} from './types';
 import ProductCard from '../../molecules/ProductCard';
@@ -16,27 +16,10 @@ const ProductCardList = ({
   onCartPress,
 }: ProdcutCardListParams) => {
   const userStore = useSelector(selectUser);
-  return (
-    <FlatList
-      data={data}
-      ListEmptyComponent={() => (
-        <View style={styles.emptyContainer}>
-          <Icon
-            name="EmptyFavorite"
-            width={120}
-            height={120}
-            color={colors.transparent}
-          />
-          <Header
-            text="
-          You have no favorites yet!
-          "
-            size={16}
-            color={colors.dimGray}
-          />
-        </View>
-      )}
-      renderItem={({item}) => (
+
+  const renderItem = useCallback(
+    ({item}: any) => {
+      return (
         <ProductCard
           title={item.name}
           description={
@@ -53,7 +36,31 @@ const ProductCardList = ({
           onCartPress={() => onCartPress(item)}
           onPress={() => onPress(item)}
         />
+      );
+    },
+    [onCartPress, onFavoritePress, onPress, userStore.favorites],
+  );
+
+  return (
+    <FlatList
+      data={data}
+      initialNumToRender={10}
+      ListEmptyComponent={() => (
+        <View style={styles.emptyContainer}>
+          <Icon
+            name="EmptyFavorite"
+            width={120}
+            height={120}
+            color={colors.transparent}
+          />
+          <Header
+            text="You have no favorites yet!"
+            size={16}
+            color={colors.dimGray}
+          />
+        </View>
       )}
+      renderItem={renderItem}
       ItemSeparatorComponent={memo(() => (
         <View style={styles.seperatorComponent} />
       ))}

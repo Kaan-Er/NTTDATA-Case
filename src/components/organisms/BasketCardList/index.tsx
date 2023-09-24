@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
-import React, {memo} from 'react';
+import React, {memo, useCallback} from 'react';
 import {Dimensions, FlatList, StyleSheet, View} from 'react-native';
 import {BasketCardListParams} from './types';
 import Icon from '../../atoms/Icon';
@@ -17,27 +17,9 @@ const BasketCardList = ({
 }: BasketCardListParams) => {
   const navigation = useNavigation<ScreenProp>();
 
-  return (
-    <FlatList
-      data={data}
-      ListEmptyComponent={() => (
-        <View style={styles.emptyContainer}>
-          <Icon
-            name="EmptyCard"
-            width={120}
-            height={120}
-            color={colors.transparent}
-          />
-          <Header
-            text="
-          You have no product yet!
-          "
-            size={16}
-            color={colors.dimGray}
-          />
-        </View>
-      )}
-      renderItem={({item}) => (
+  const renderItem = useCallback(
+    ({item}: any) => {
+      return (
         <BasketCard
           title={
             item.product.name.length > 20
@@ -56,7 +38,30 @@ const BasketCardList = ({
             navigation.navigate('ProductDetails', {product: item.product})
           }
         />
+      );
+    },
+    [onAdd, onRemove, onRemoveAll, navigation],
+  );
+
+  return (
+    <FlatList
+      data={data}
+      ListEmptyComponent={() => (
+        <View style={styles.emptyContainer}>
+          <Icon
+            name="EmptyCard"
+            width={120}
+            height={120}
+            color={colors.transparent}
+          />
+          <Header
+            text="You have no product yet!"
+            size={16}
+            color={colors.dimGray}
+          />
+        </View>
       )}
+      renderItem={renderItem}
       ItemSeparatorComponent={memo(() => (
         <View style={styles.seperatorComponent} />
       ))}

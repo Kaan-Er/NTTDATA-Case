@@ -107,8 +107,8 @@ export default ({
                 {userStore.photo ? (
                   <Image
                     url={userStore.photo}
-                    width={50}
-                    height={50}
+                    width={32}
+                    height={32}
                     resizeMode="cover"
                     containerStyle={styles.image}
                   />

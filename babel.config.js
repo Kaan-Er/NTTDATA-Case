@@ -7,5 +7,11 @@ module.exports = {
         extensions: ['.svg'],
       },
     ],
+    [
+      'react-native-reanimated/plugin',
+      {
+        globals: ['__scanFaces', '__labelImage'],
+      },
+    ],
   ],
 };

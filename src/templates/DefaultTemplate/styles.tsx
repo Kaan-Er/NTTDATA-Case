@@ -162,9 +162,9 @@ export default ({
       alignItems: 'center',
     },
     imageContainer: {
-      width: 50,
-      height: 50,
-      borderRadius: 25,
+      width: 32,
+      height: 32,
+      borderRadius: 16,
       backgroundColor: colors.proggressUnfilledColor,
       justifyContent: 'center',
       alignItems: 'center',

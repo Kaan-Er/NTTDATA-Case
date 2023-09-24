@@ -1,1 +1,0 @@
-Organizmaları buraya oluşturabilirsiniz.

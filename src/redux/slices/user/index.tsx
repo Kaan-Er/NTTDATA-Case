@@ -94,6 +94,13 @@ export const userSlices = createSlice({
         });
       }
     },
+    saveLocation: (state, action) => {
+      state.location = action.payload;
+      Toast.open({
+        type: 'success',
+        title: 'Location saved!',
+      });
+    },
   },
   extraReducers: builder => {
     builder.addCase(login.pending, state => {
@@ -114,8 +121,14 @@ export const userSlices = createSlice({
 export const selectUser = (state: any): IUser => state.user;
 
 // Action creators are generated for each case reducer function
-export const {changeName, handleFavorite, addCart, removeCart, deleteCart} =
-  userSlices.actions;
+export const {
+  changeName,
+  handleFavorite,
+  addCart,
+  removeCart,
+  deleteCart,
+  saveLocation,
+} = userSlices.actions;
 
 // We export the reducer function so that it can be added to the store
 export default userSlices.reducer;
