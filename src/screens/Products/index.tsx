@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white.default,
-    padding: 12,
+    paddingVertical: 12,
   },
   indicator: {
     marginTop: 24,

@@ -33,6 +33,7 @@ import EmptyFavorite from '../assets/icons/emptyFavorite.svg';
 import Delete from '../assets/icons/delete.svg';
 import Minus from '../assets/icons/minus.svg';
 import Plus from '../assets/icons/plus.svg';
+import Location from '../assets/icons/location.svg';
 
 const icons: {[key: string]: React.FC<SvgProps>} = {
   Bottom,
@@ -66,6 +67,7 @@ const icons: {[key: string]: React.FC<SvgProps>} = {
   Delete,
   Minus,
   Plus,
+  Location,
 };
 
 const nonFlip: {[key: string]: string} = {};

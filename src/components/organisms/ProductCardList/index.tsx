@@ -60,16 +60,19 @@ const ProductCardList = ({
           />
         </View>
       )}
+      contentContainerStyle={styles.contentContainerStyle}
       renderItem={renderItem}
       ItemSeparatorComponent={memo(() => (
         <View style={styles.seperatorComponent} />
       ))}
+      keyExtractor={item => item.id.toString()}
     />
   );
 };
 
 const styles = StyleSheet.create({
   seperatorComponent: {height: 16},
+  contentContainerStyle: {paddingHorizontal: 12},
   emptyContainer: {
     flex: 1,
     marginTop: Dimensions.get('window').height / 4,

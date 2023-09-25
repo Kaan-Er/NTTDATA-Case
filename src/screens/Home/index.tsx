@@ -71,9 +71,10 @@ export default () => {
     <BottomSheetModalProvider>
       <DefaultTemplate
         header="Map"
-        space
         whiteBackground
         userHeader
+        plus
+        addPress={handlePresentModalPress}
         topBackgroundColor={colors.white.default}>
         <ScrollView style={styles.container}>
           <BottomSheetModal
@@ -135,20 +136,13 @@ export default () => {
                   });
                 }}>
                 <Icon
-                  name="UserLocation"
-                  width="24"
-                  height="24"
+                  name="Location"
+                  width="32"
+                  height="32"
                   color={colors.primary}
                 />
               </Marker>
             </MapView>
-            <Button
-              onPress={handlePresentModalPress}
-              color={colors.primary}
-              style={styles.button}
-              medium>
-              Save Location
-            </Button>
           </View>
         </ScrollView>
       </DefaultTemplate>
@@ -174,13 +168,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     padding: 20,
     gap: 10,
-  },
-  button: {
-    position: 'absolute',
-    bottom: 40,
-    height: 48,
-    alignSelf: 'center',
-    width: Dimensions.get('window').width - 40,
   },
   saveButton: {
     height: 48,

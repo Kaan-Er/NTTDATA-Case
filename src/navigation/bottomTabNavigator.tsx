@@ -38,7 +38,7 @@ const BottomTabNavigator = () => {
       screenOptions={{
         header: () => null,
         tabBarActiveTintColor: colors.primary,
-        tabBarInactiveTintColor: colors.blackOlive,
+        tabBarInactiveTintColor: colors.dimGray,
         tabBarLabelStyle: {
           fontSize: 10,
           fontWeight: '500',
