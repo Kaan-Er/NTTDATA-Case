@@ -1,79 +1,78 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# NTTDATA React Native Case
 
-# Getting Started
+## Description
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+- This project was made according to Atomic Design and tests were written with Jest library. Saved in phone storage using React Native Async Storage.
 
-## Step 1: Start the Metro Server
+## Used Technologies
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- React Native
+- Typescript
+- Redux Toolkit
+- Jest
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Features
+
+- There is a Login Screen. You can log in with any fake account.
+
+- When the application is first opened, the data is taken and limited to 12 and displayed with the help of an Flatlist.
+
+- "https://honey-badgers-ecommerce.glitch.me/products" used api link for the products.
+
+- On the Homepage, user can save the location. Used Google MAPS Api.
+
+- Products added to cart and favorites are shown again when the application is reopened.
+
+- When you click on the products, you are directed to the detail page of the products.
+
+- Products can be added to the cart on the Product Detail page and on the Products.
+
+- Products can be sorted with the filter on the Products.
+
+- The total number of products in the basket is displayed on the Basket from the Bottom navigators.
+
+- On the Basket screen, the products added to the cart are displayed. Products can be increased or decreased and deleted on this screen. It also includes the total price of these products.
+
+- Products can be added to favorites and deleted on the Favorite screen.
+
+- Added empty product information for Basket and Favorite pages if there is no product.
+
+- Used Poppins Font Family.
+
+## App Screens
+<div style="display: flex; flex-direction: row;">
+   <img width="300" alt="Login" src="https://github.com/Kaan-Er/NTTDATA-Case/assets/53345236/2f66fb57-13a6-47c3-b06a-22ab10d8f3c8">
+   <img width="300" alt="Home" src="https://github.com/Kaan-Er/NTTDATA-Case/assets/53345236/5af26053-8a75-4ebd-817e-488e367e7516">
+   <img width="300" alt="Home2" src="https://github.com/Kaan-Er/NTTDATA-Case/assets/53345236/897d088e-2d11-4ece-91dc-e9f10c4c2b2e">
+</div>
+<div style="display: flex; flex-direction: row;">
+   <img width="300" alt="Products" src="https://github.com/Kaan-Er/NTTDATA-Case/assets/53345236/5153701b-f428-45b5-8c67-0ce516341219">
+   <img width="300" alt="Products2" src="https://github.com/Kaan-Er/NTTDATA-Case/assets/53345236/15be1f64-847d-41e5-b7e8-8b2871ad8a7d">
+   <img width="300" alt="ProductDetails" src="https://github.com/Kaan-Er/NTTDATA-Case/assets/53345236/ec432c7d-ffd0-4b54-8166-e293f345d205">
+</div>
+<div style="display: flex; flex-direction: row;">
+<img width="300" alt="Favorites" src="https://github.com/Kaan-Er/NTTDATA-Case/assets/53345236/336bc1ae-123e-4621-b368-51a6ee42b9ad">
+<img width="300" alt="Basket" src="https://github.com/Kaan-Er/NTTDATA-Case/assets/53345236/e058ddfd-fe37-4b96-84ef-93f5dd919ac8">
+</div>
+
+## Getting Started
+
+To run the NTTDATA App on your local machine, follow these steps:
+
+1. Clone this repository:
 
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+  git clone https://github.com/Kaan-Er/NTTDATA-Case
 ```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
+2. Open the project in VsCode:
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+   cd NTTDATA-Case
+   yarn install
+   cs ios
+   pod install
+   cd ..
+   yarn start
+   yarn test
 ```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
