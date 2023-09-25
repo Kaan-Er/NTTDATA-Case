@@ -70,7 +70,7 @@ To run the NTTDATA App on your local machine, follow these steps:
 ```bash
    cd NTTDATA-Case
    yarn install
-   cs ios
+   cd ios
    pod install
    cd ..
    yarn start
